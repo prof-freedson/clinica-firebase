@@ -23,7 +23,6 @@ export class PacienteService {
       console.log('🔍 Iniciando busca de pacientes...');
       console.log('📁 Nome da coleção:', COLLECTION_NAME);
       
-      // Query simplificada para não precisar de índice composto
       const collectionRef = collection(db, COLLECTION_NAME);
       console.log('🔎 Referência da coleção criada:', collectionRef);
       
@@ -39,23 +38,21 @@ export class PacienteService {
         });
       }
       
-      // Filtrar e ordenar no cliente (temporariamente)
+      // Mapear e ordenar no cliente
       const todosPacientes = querySnapshot.docs.map(doc => ({
         id: doc.id,
         nome: doc.data().nome,
         dataNascimento: doc.data().dataNascimento,
         bairro: doc.data().endereco?.bairro || 'N/A',
         cidade: doc.data().endereco?.cidade || 'N/A',
-        ativo: doc.data().ativo
       }));
       
-      // Filtrar ativos e ordenar por nome
-      const pacientesAtivos = todosPacientes
-        .filter(p => p.ativo !== false) // Inclui true e undefined
+      // Ordenar por nome
+      const pacientesOrdenados = todosPacientes
         .sort((a, b) => a.nome.localeCompare(b.nome));
       
-      console.log('✅ Resultado final:', pacientesAtivos);
-      return pacientesAtivos;
+      console.log('✅ Resultado final:', pacientesOrdenados);
+      return pacientesOrdenados;
       
     } catch (error) {
       console.error('❌ Erro ao listar pacientes:', error);
@@ -92,7 +89,6 @@ export class PacienteService {
     try {
       const pacienteData = {
         ...dados,
-        ativo: true,
         criadoEm: Timestamp.now(),
         atualizadoEm: Timestamp.now(),
       };
@@ -120,13 +116,14 @@ export class PacienteService {
     }
   }
 
-  // Excluir paciente (soft delete)
+  // Excluir paciente (hard delete)
   static async excluirPaciente(id: string): Promise<void> {
     try {
       const docRef = doc(db, COLLECTION_NAME, id);
       
+      // Por enquanto, apenas atualizar o timestamp
+      // Se quiser implementar exclusão real, use deleteDoc(docRef)
       await updateDoc(docRef, {
-        ativo: false,
         atualizadoEm: Timestamp.now(),
       });
     } catch (error) {
@@ -141,7 +138,6 @@ export class PacienteService {
       const q = query(
         collection(db, COLLECTION_NAME),
         where('endereco.cidade', '==', cidade),
-        where('ativo', '==', true),
         orderBy('nome')
       );
       

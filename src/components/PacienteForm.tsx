@@ -218,7 +218,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                   step="0.01"
                   value={formData.peso}
                   onChange={(e) => setFormData(prev => ({ ...prev, peso: parseFloat(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="0.00"
                   min="0.1"
                   max="999"
@@ -236,7 +236,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                   step="0.01"
                   value={formData.altura}
                   onChange={(e) => setFormData(prev => ({ ...prev, altura: parseFloat(e.target.value) || 0 }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="0.00"
                   min="0.1"
                   max="3"
@@ -263,7 +263,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                     ...prev, 
                     endereco: { ...prev.endereco, rua: e.target.value }
                   }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Nome da rua"
                   required
                 />
@@ -281,7 +281,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                     ...prev, 
                     endereco: { ...prev.endereco, numero: e.target.value }
                   }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="123"
                   required
                 />
@@ -300,7 +300,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                     ...prev, 
                     endereco: { ...prev.endereco, estado: e.target.value.toUpperCase() }
                   }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border text-black  border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="MA"
                   required
                 />
@@ -318,7 +318,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                     ...prev, 
                     endereco: { ...prev.endereco, bairro: e.target.value }
                   }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Nome do bairro"
                   required
                 />
@@ -336,7 +336,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                     ...prev, 
                     endereco: { ...prev.endereco, cidade: e.target.value }
                   }))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Nome da cidade"
                   required
                 />
@@ -369,7 +369,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                       newTelefones[index] = e.target.value;
                       setFormData(prev => ({ ...prev, telefones: newTelefones }));
                     }}
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="flex-1 px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="(98) 91234-5678"
                   />
                   {formData.telefones.length > 1 && (
@@ -411,7 +411,7 @@ export default function PacienteForm({ paciente, mode }: PacienteFormProps) {
                       newEmails[index] = e.target.value;
                       setFormData(prev => ({ ...prev, emails: newEmails }));
                     }}
-                    className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="flex-1 px-3 py-2 border text-black border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="email@exemplo.com"
                   />
                   {formData.emails.length > 1 && (

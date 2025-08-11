@@ -121,7 +121,7 @@ src/
 ### Excluindo paciente
 - Na lista de pacientes, clique no ícone de lixeira (🗑️)
 - Confirme a exclusão
-- O paciente será marcado como inativo
+- O paciente será removido da lista
 
 ## 🚨 Solução de Problemas
 

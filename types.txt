@@ -18,7 +18,6 @@ export interface Paciente {
   endereco: Endereco;
   telefones: string[];
   emails: string[];
-  ativo: boolean;
   criadoEm?: Timestamp;
   atualizadoEm?: Timestamp;
 }
