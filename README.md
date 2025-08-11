@@ -38,7 +38,7 @@ npm install
 
 ### 3. Configure o Firebase
 
-Altere o arquivo `.env.local.example` para `.env.local` na raiz do projeto com as seguintes variáveis:
+Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
 
 ```env
 NEXT_PUBLIC_FIREBASE_API_KEY=sua_api_key_aqui
@@ -55,6 +55,8 @@ NEXT_PUBLIC_FIREBASE_APP_ID=seu_app_id
 3. Vá em "Configurações do Projeto" (ícone de engrenagem)
 4. Clique em "Configurações do SDK"
 5. Copie as configurações para o `.env.local`
+
+**💡 Dica:** Você pode criar um arquivo `.env.local.example` com essas variáveis como modelo para outros desenvolvedores.
 
 ### 4. Configure as regras do Firestore
 
